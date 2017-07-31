@@ -1,5 +1,7 @@
 # DynDNS-like service with Scuttlebutt
 
+Very experimental. It's more a tutorial on how to use [Scuttlebutt](https://www.scuttlebutt.nz/) via [Scuttlebot](http://scuttlebot.io/).
+
 ## Install
 
 Notes:
@@ -47,7 +49,15 @@ sbot logt ssb-dyndns-ip-change | jq --slurp --raw-output ".[-1].value.content.ip
 
 Should display an IP like `121.121.212.212`.
 
+## Replicate the log
+
+If you want to share the log between many machines, each of them should [join](http://scuttlebot.io/docs/social/join-a-pub.html) the same pub.
+
+If you want to keep data private (the IP addresses) or don't want to pollute the log with the data of other people on the pub, then you might want to [create your own pub](https://scuttlebot.io/docs/config/create-a-pub.html).
+
 ## Systemd service
+
+After the machine gets an internet connection, systemd can trigger a script which published the new IP address in the Scuttlebutt log.
 
 TODO
 
